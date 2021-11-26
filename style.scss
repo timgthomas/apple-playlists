@@ -1,4 +1,4 @@
-/* Variables */
+// Variables
 
 :root {
   --color-background: #222;
@@ -86,9 +86,8 @@ main {
 
 /* Playlist Groups */
 
-.group-item {}
-
-  .group-item h1 {
+.group-item {
+  h1 {
     background: var(--color-background);
     display: block;
     font-size: 1.2rem;
@@ -98,14 +97,14 @@ main {
     top: var(--size-header);
     text-transform: uppercase;
   }
+}
 
 /* Playlists */
 
 .playlist-item {
   position: relative;
-}
 
-  .playlist-item a {
+  a {
     border-radius: 0.6rem;
     color: inherit;
     display: block;
@@ -113,15 +112,15 @@ main {
     text-decoration: none;
   }
 
-  .playlist-item:nth-child(2n) a {
+  &:nth-child(2n) a {
     background: var(--color-striping);
   }
 
-  .playlist-item:hover a {
+  &:hover a {
     background: var(--color-hover);
   }
 
-  .playlist-item button {
+  button {
     appearance: none;
     aspect-ratio: 1;
     background: transparent;
@@ -132,3 +131,4 @@ main {
     right: 0.6rem;
     top: 0.6rem;
   }
+}
