@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apple Playlists</title>
+  <link rel="stylesheet" href="/index.de101254.css">
+  <script src="//unpkg.com/lodash@4.x.x/lodash.js"></script>
+  <script defer="" src="//unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body x-data="">
+  <header role="banner">
+    <div class="constrained">
+      <h1>Apple Playlists</h1>
+      <input x-model="$store.app.filter" placeholder="Search">
+    </div>
+  </header>
+  <main class="constrained">
+    <p x-show="!$store.app.groups.length">No results.</p>
+    <ul>
+      <template x-for="group in $store.app.groups" :key="group.name">
+        <li class="group-item">
+          <h1 x-text="group.name"></h1>
+          <ul>
+            <template x-for="playlist in group.playlists" :key="playlist.id">
+              <li class="playlist-item">
+                <a :href="$store.app.buildHref(playlist)" x-text="_.startCase(playlist.slug)"></a>
+                <button @click="$store.app.toggleFavorite(playlist)" x-text="playlist.isFavorite ? '💔' : '❤️'"></button>
+              </li>
+            </template>
+          </ul>
+        </li>
+      </template>
+    </ul>
+  </main>
+  <script src="/index.f3d234eb.js"></script>
+  <script src="/index.d3334858.js"></script>
+</body>
+</html>
