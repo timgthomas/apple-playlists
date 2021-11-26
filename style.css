@@ -1,0 +1,134 @@
+/* Variables */
+
+:root {
+  --color-background: #222;
+  --color-striping: #252525;
+  --color-hover: #2f2f2f;
+  --color-outline: #353535;
+  --color-primary: #9b9b9b;
+
+  --size-header: 6.6rem;
+}
+
+/* Resets */
+
+* {
+  box-sizing: border-box;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  background-color: var(--color-background);
+  color: var(--color-primary);
+  font-family: -apple-system;
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.3rem;
+  padding-top: var(--size-header);
+}
+
+/* Layout */
+
+.constrained {
+  margin: 0 auto;
+  max-width: 48.0rem;
+}
+
+main {
+  padding-bottom: 3.2rem;
+  padding-top: 1.2rem;
+}
+
+/* Banner */
+
+[role='banner'] {
+  background: var(--color-background);
+  border: 1px solid var(--color-outline);
+  border-width: 0 0 1px;
+  height: var(--size-header);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+  [role='banner'] > div {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+  }
+
+  [role='banner'] h1 {
+    font-size: 2.6rem;
+    font-weight: 600;
+  }
+
+  [role='banner'] input {
+    appearance: none;
+    background: transparent;
+    border: 1px solid var(--color-outline);
+    border-radius: 0.6rem;
+    color: inherit;
+    font-size: 1.3rem;
+    height: 2.8rem;
+    padding: 0 1.2rem;
+    width: 20.0rem;
+  }
+
+    [role='banner'] input:focus {
+      background: var(--color-hover);
+    }
+
+/* Playlist Groups */
+
+.group-item {}
+
+  .group-item h1 {
+    background: var(--color-background);
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 1.2rem 0;
+    position: sticky;
+    top: var(--size-header);
+    text-transform: uppercase;
+  }
+
+/* Playlists */
+
+.playlist-item {
+  position: relative;
+}
+
+  .playlist-item a {
+    border-radius: 0.6rem;
+    color: inherit;
+    display: block;
+    padding: 1.2rem 1.8rem;
+    text-decoration: none;
+  }
+
+  .playlist-item:nth-child(2n) a {
+    background: var(--color-striping);
+  }
+
+  .playlist-item:hover a {
+    background: var(--color-hover);
+  }
+
+  .playlist-item button {
+    appearance: none;
+    aspect-ratio: 1;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    height: calc(100% - 1.2rem);
+    right: 0.6rem;
+    top: 0.6rem;
+  }
