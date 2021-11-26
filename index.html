@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Apple Playlists</title>
   <link rel="stylesheet" href="./style.scss">
-  <script src="//unpkg.com/lodash@4.x.x/lodash.js"></script>
 </head>
 <body x-data>
   <header role="banner">
@@ -23,7 +22,7 @@
           <ul>
             <template x-for="playlist in group.playlists" :key="playlist.id">
               <li class="playlist-item">
-                <a :href="$store.app.buildHref(playlist)" x-text="_.startCase(playlist.slug)"></a>
+                <a :href="playlist.url" x-text="playlist.name"></a>
                 <button
                   @click="$store.app.toggleFavorite(playlist)"
                   x-text="playlist.isFavorite ? '💔' : '❤️'"
@@ -35,7 +34,6 @@
       </template>
     </ul>
   </main>
-  <script src="./data.js"></script>
   <script type="module" src="./app.js"></script>
 </body>
 </html>

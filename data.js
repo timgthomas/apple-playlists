@@ -1,4 +1,4 @@
-window.playlistData = [
+export default [
   { group: 'Happy', id: '10fc76a3edc14e759deb60535854e339', slug: 'feeling-good' },
   { group: 'Happy', id: '0d4aee5424c74d29ad15252eeb43d3b1', slug: 'feeling-happy' },
   { group: 'Happy', id: 'ab46d44f77784bf18c079aca613e2958', slug: 'joy' },

@@ -1,4 +1,7 @@
 import Alpine from 'alpinejs'
+import _ from 'lodash'
+
+import allPlaylists from './data'
 
 Alpine.store('app', {
 
@@ -13,10 +16,16 @@ Alpine.store('app', {
 
   get filteredPlaylists() {
     let filter = this.filter.toLowerCase().trim()
-    return window.playlistData
-      .filter((p) => !filter || p.slug.replace(/-/g, ' ').includes(filter))
-      .map((p) => ({ ...p, isFavorite: this.favoriteIds.includes(p.id) }))
+    return allPlaylists
+      .map((p) => ({
+        ...p,
+        name: _.startCase(p.slug),
+        isFavorite: this.favoriteIds.includes(p.id),
+        url: `https://music.apple.com/us/playlist/${p.slug}/pl.${p.id}`,
+      }))
+      .filter((p) => !filter || p.name.toLowerCase().includes(filter))
   },
+
   get groups() {
     let groupedPlaylists = Object
       .entries(_.groupBy(this.filteredPlaylists, 'group'))
@@ -28,10 +37,6 @@ Alpine.store('app', {
       },
       ...groupedPlaylists,
     ].filter((g) => g.playlists.length)
-  },
-
-  buildHref({ id, slug }) {
-    return `https://music.apple.com/us/playlist/${slug}/pl.${id}`
   },
 
   toggleFavorite({ id }) {

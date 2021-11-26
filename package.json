@@ -2,9 +2,10 @@
   "name": "apple-playlists",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "source": "index.html",
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel",
+    "build": "parcel build"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +15,7 @@
     "parcel": "^2.0.1"
   },
   "dependencies": {
-    "alpinejs": "^3.5.2"
+    "alpinejs": "^3.5.2",
+    "lodash": "^4.17.21"
   }
 }
