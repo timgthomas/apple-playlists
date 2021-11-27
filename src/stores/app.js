@@ -1,24 +1,22 @@
 import _ from 'lodash'
 
-import allPlaylists from '../../data'
+export default class {
 
-export default {
+  playlists = []
+  filter = ''
+  storage = null
 
-  playlists: [],
-  filter: '',
-  storage: null,
-
-  init(playlists = allPlaylists, storage = localStorage) {
+  constructor(playlists, storage) {
     this.playlists = playlists
     this.storage = storage
-  },
+  }
 
   get favoriteIds() {
     return (this.storage.getItem('favorites')?.split(',') ?? []).filter(Boolean)
-  },
+  }
   set favoriteIds(newFavoriteIds) {
     this.storage.setItem('favorites', newFavoriteIds.filter(Boolean).join(','));
-  },
+  }
 
   get filteredPlaylists() {
     let filter = this.filter.toLowerCase().trim()
@@ -30,7 +28,7 @@ export default {
         url: `https://music.apple.com/us/playlist/${p.slug}/pl.${p.id}`,
       }))
       .filter((p) => !filter || p.name.toLowerCase().includes(filter))
-  },
+  }
 
   get groups() {
     let groupedPlaylists = Object
@@ -43,7 +41,7 @@ export default {
       },
       ...groupedPlaylists,
     ].filter((g) => g.playlists.length)
-  },
+  }
 
   toggleFavorite({ id }) {
     if (this.favoriteIds.includes(id)) {
@@ -51,6 +49,6 @@ export default {
     } else {
       this.favoriteIds = [ ...this.favoriteIds, id ]
     }
-  },
+  }
 
 }

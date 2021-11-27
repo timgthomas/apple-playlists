@@ -1,7 +1,8 @@
 import Alpine from 'alpinejs'
 
-import appStore from './src/stores/app'
+import allPlaylists from './data'
+import AppStore from './src/stores/app'
 
-Alpine.store('app', appStore)
+Alpine.store('app', new AppStore(allPlaylists, window.localStorage))
 
 Alpine.start()
