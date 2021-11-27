@@ -6,7 +6,9 @@
   "scripts": {
     "start": "parcel",
     "test": "mocha --recursive -r @babel/register",
-    "build": "parcel build"
+    "build": "parcel build",
+    "prepare": "rm -rf dist && parcel build",
+    "package": "push-dir --dir=dist --branch=gh-pages --cleanup --verbose"
   },
   "keywords": [],
   "author": "",
@@ -17,7 +19,8 @@
     "@parcel/transformer-sass": "^2.0.1",
     "alpine-test-utils": "^1.0.0",
     "mocha": "^7.2.0",
-    "parcel": "^2.0.1"
+    "parcel": "^2.0.1",
+    "push-dir": "^0.4.1"
   },
   "dependencies": {
     "alpinejs": "^3.5.2",
