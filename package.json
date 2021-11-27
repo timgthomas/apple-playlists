@@ -2,7 +2,7 @@
   "name": "apple-playlists",
   "version": "1.0.0",
   "description": "",
-  "source": "index.html",
+  "source": "src/index.html",
   "scripts": {
     "start": "parcel",
     "test": "mocha --recursive -r @babel/register",
