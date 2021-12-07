@@ -1,0 +1,45 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../shared/style.css">
+  <script src="https://unpkg.com/lodash@4.x.x/lodash.js"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <title>Apple Mood Playlists</title>
+</head>
+<body>
+  <header role="banner">
+    <div class="constrained">
+      <h1>Apple Mood Playlists</h1>
+    </div>
+  </header>
+  <main class="constrained">
+    <p>
+      This app was built as part of a blog series on Alpine.js. To learn more about how it was built, <a href="https://timgthomas.com/2021/12/advanced-alpine-js-part-1/">check out my blog</a>!
+    </p>
+    <ul x-data>
+      <template
+        x-for="(playlists, groupName) of _.groupBy(window.data, 'group')"
+        :key="groupName"
+      >
+        <li>
+          <h1 x-text="groupName"></h1>
+          <ul>
+            <template
+              x-for="playlist in playlists"
+              :key="playlist.id"
+            >
+              <li>
+                <a
+                  :href="`https://music.apple.com/us/playlist/${playlist.slug}/pl.${playlist.id}`"
+                  x-text="playlist.slug"
+                ></a>
+              </li>
+            </template>
+          </ul>
+        </li>
+      </template>
+    </ul>
+  </main>
+  <script src="../shared/data.js"></script>
+</body>
+</html>

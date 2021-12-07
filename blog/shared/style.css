@@ -1,0 +1,114 @@
+/* Resets */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+/* Variables */
+
+:root {
+  --c-background: #1f1f1f;
+  --c-background-alt: #232323;
+  --c-midground: #2c2c2c;
+  --c-border: #363636;
+  --c-primary: #9a9a9a;
+  --c-accent: #ff5671;
+}
+
+/* Bases */
+
+:root {
+  color: var(--c-primary);
+  font-family: sans-serif;
+  font-size: 62.5%;
+  line-height: 1;
+}
+
+body {
+  background: var(--c-background);
+  padding-top: 6.6rem;
+}
+
+p {
+  border: 1px solid var(--c-border);
+  border-radius: 0.8rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  line-height: 1.618;
+  margin: 1.2rem 0 2.4rem;
+  padding: 1.2rem;
+  text-align: center;
+}
+
+a {
+  color: var(--c-accent);
+  text-decoration: none;
+}
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+.constrained {
+  margin: 0 auto;
+  max-width: 42.0rem;
+}
+
+/* Masthead */
+
+[role='banner'] {
+  background: var(--c-background);
+  border-bottom: 1px solid var(--c-border);
+  height: 6.6rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+  [role='banner'] .constrained {
+    align-items: center;
+    display: flex;
+    height: 100%;
+  }
+
+  [role='banner'] h1 {
+    font-weight: normal;
+  }
+
+/* Content */
+
+main {
+  padding: 1.2rem 4.8rem 4.8rem;
+}
+
+  main h1 {
+    background: var(--c-background);
+    border-bottom: 1px solid var(--c-border);
+    font-size: 1.2rem;
+    margin: 0.6rem 0 1.2rem;
+    padding: 1.2rem 1.2rem 0.6rem;
+    position: sticky;
+    top: 6.7rem;
+    text-transform: uppercase;
+  }
+
+  main li li:nth-child(2n) a:not(:hover) {
+    background: var(--c-background-alt);
+  }
+
+  main li a {
+    border-radius: 0.8rem;
+    display: flex;
+    font-size: 1.6rem;
+    padding: 1.2rem;
+  }
+
+    main li a:hover {
+      background: var(--c-midground);
+    }
