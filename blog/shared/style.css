@@ -78,8 +78,24 @@ a {
   }
 
   [role='banner'] h1 {
+    flex-grow: 1;
     font-weight: normal;
   }
+
+  [role='banner'] input {
+    background: transparent;
+    border: 1px solid var(--c-border);
+    border-radius: 0.8rem;
+    color: var(--c-primary);
+    font: inherit;
+    font-size: 1.4rem;
+    padding: 0.6rem 1.2rem;
+    width: 14.0rem;
+  }
+
+    [role='banner'] input:focus {
+      border-color: var(--c-accent);
+    }
 
 /* Content */
 
