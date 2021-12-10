@@ -31,7 +31,7 @@
               <li>
                 <a
                   :href="`https://music.apple.com/us/playlist/${playlist.slug}/pl.${playlist.id}`"
-                  x-text="playlist.slug"
+                  x-text="_.startCase(playlist.slug)"
                 ></a>
               </li>
             </template>
